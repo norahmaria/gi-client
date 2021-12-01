@@ -1,0 +1,54 @@
+.reactions {
+  display: flex;
+  gap: 0.65rem;
+  margin-left: -0.2rem;
+  align-items: center;
+
+  b {
+    font-weight: 500;
+    padding-left: 0.45rem;
+  }
+
+  button {
+    display: flex;
+    cursor: default;
+    background: none;
+    align-items: center;
+    border-radius: 50%;
+    padding: 0 !important;
+
+    &:not(.reacted) {
+      filter: grayscale(100%);
+    }
+
+    &:hover, &:focus {
+      filter: grayscale(0%);
+      outline: none;
+    }
+
+    &:focus {
+      svg {
+        transform: rotate(25deg);
+      }
+    }
+  }
+  
+  svg {
+    height: 2.5rem;
+    width: 3rem;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    will-change: filter;
+    filter: drop-shadow(0px 0px 0px rgba(255, 255, 255, 0.75));
+  }
+
+  svg:hover  {
+    transform: scale(1.25) rotate(10deg);
+    transform-origin: center;
+    filter: drop-shadow($yellow-shadow);
+  }
+
+  svg.angry:hover {
+    filter: drop-shadow($red-shadow);
+  }
+}

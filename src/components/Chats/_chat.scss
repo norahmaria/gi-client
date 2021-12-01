@@ -1,0 +1,147 @@
+
+.chats {
+  position: fixed;
+  gap: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  width: max-content;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.chat {
+  a:focus > * {
+    text-decoration: underline;
+  }
+  
+  position: relative;
+  background: $white;
+  box-shadow: $dark-shadow;
+  border-radius: 1rem;
+  height: 50vh;
+  width: 30rem;
+  display: flex;
+  flex-direction: column;
+
+  .dot {
+    top: 2.75rem;
+  }
+
+  .chat-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem 1.75rem 2rem;
+
+    h4 {
+      font-weight: 500;
+    }
+
+    svg {
+      height: 1.75rem;
+    }
+
+    div {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+  }
+
+  .messages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    overflow-y: scroll;
+    height: 100%;
+    padding: 1rem 2rem;
+
+    & > :first-child {
+      margin-top: auto;
+    }
+  }
+}
+
+.message-container {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
+
+  .message {
+    border-radius: 1rem;
+    background: $black;
+    color: $white;
+    padding: 0.75em;
+    max-width: 65%;
+    position: relative;
+  }
+
+  &.user-true {
+    justify-content: flex-end;
+
+    .message {
+      background: #eeeef0;
+      color: $black;
+    }
+  }
+
+  &:not(.user-true) {
+    .message {
+      border-radius: 0 0.75em 0.75em 0.75em;
+    }
+
+    .message::before {
+      content: "";
+      position: absolute;
+      top: -0.35rem;
+      left: -2.6rem;
+      z-index: 20;
+      
+      transform: rotate(-90deg);
+  
+      height: 3rem;
+      width: 2.25rem;
+      background: $black;
+      mask-image: radial-gradient(circle 3rem at 0 0, transparent 0, transparent 3rem, black 3rem);
+      -webkit-mask-image: radial-gradient(circle 3rem at 0 0, transparent 0, transparent 3rem, black 3rem); 
+    }
+  }
+
+  .avatar {
+    margin-top: 0.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+  }
+}
+
+.chat > form {
+  // background: red;
+  display: flex;
+  padding: 1rem 2rem 2rem;
+
+  textarea {
+    resize: none;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-family: inherit;
+    color: inherit;
+    height: auto;
+    background: #eeeef0;
+    color: $black;
+    
+    &:hover, &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+
+  button {
+    display: none;
+  }
+}

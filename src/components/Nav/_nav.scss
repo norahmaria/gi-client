@@ -1,0 +1,252 @@
+header {
+  gap: 1.75rem;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75em 2rem 1rem 2rem;
+  background: $neutral50;
+  width: calc(90vw + 4rem);
+  margin-left: -2rem;
+  z-index: 20;
+
+  .logo {
+    font-size: 2.75rem;
+    font-weight: 900;
+    user-select: none;
+
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1.5em;
+  }
+
+  svg {
+    height: 2rem;
+  }
+
+  .dot {
+    outline: none;
+    top: -0.15rem;
+    right: -0.3rem;
+  }
+}
+
+
+.nav-chats, .nav-notifications, .nav-user, .nav-search {
+  position: relative;
+
+  .click-chats, .click-notifications, .click-user {
+    cursor: pointer;
+    transition: transform 0.25s ease;
+
+    &:focus {
+      outline: none;
+      transform: scale(1.25) rotate(20deg);
+    }
+  }
+
+  .input {
+    svg {
+      transition: transform 0.25s ease;
+    }
+    
+    svg:focus {
+      outline: none;
+      transform: scale(1.25) rotate(20deg);
+    }
+  }
+}
+
+.open-notifications, .open-chats, .open-user, .open-search {
+  z-index: 10;
+  display: grid;
+  gap: 1em;
+  position: absolute;
+  overflow-y: scroll;
+  margin-top: 1.15rem;
+  border-radius: 1rem;
+  transform: translateX(calc(-50% - 1rem));
+  left: 50%;
+  max-height: 55vh;
+  width: 29rem;
+  padding: 1.25em;
+  background-color: $white;
+  box-shadow: $dark-shadow;
+}
+
+.open-chats {
+  margin-left: 240%;
+  margin-top: 2rem;
+}
+
+.open-notifications {
+  margin-left: 540%;
+  margin-top: 2rem;
+}
+
+.open-search {
+  margin-left: 230%;
+}
+
+.open-notifications, .open-chats, .open-user, .open-search {
+  transform: translateX(calc(-100% + 2rem));
+  left: 50%;
+}
+
+.open-user {
+  width: 20rem;
+  padding: 0;
+  gap: 0;
+
+  button, a {
+    padding: 1em;
+    font-size: 1.6rem;
+    transition: padding 0.25s ease;
+
+    &:hover, &:focus {
+      padding-left: calc(1em + 1rem);
+      font-weight: 500;
+      background-color: $neutral50;
+      outline: none;
+    }
+  }
+
+  .delete {
+    &:hover {
+      color: $white;
+      background-color: $attentionEmoji;
+    }
+  }
+}
+
+.preview {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+
+  .unread {
+    background: $attentionEmoji;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+    max-width: 1.25rem;
+    max-height: 1.25rem;
+    position: absolute;
+    top: 1.8rem;
+    right: 0;
+  }
+
+  transition: margin 0.25s ease;
+
+  &:hover, &:focus {
+    margin-left: 1rem;
+    outline: none;
+  }
+
+  .new {
+    position: relative;
+    background: $attentionEmoji;
+    outline: 0.25rem solid $neutral50;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    min-width: 1.25rem;
+    min-height: 1.25rem;
+    max-width: 1.25rem;
+    max-height: 1.25rem;
+  }
+}
+
+.open-notifications {
+  .preview {
+    gap: 1em;
+  }
+
+  .read-true {
+    opacity: 0.5;
+  }
+
+  .new {
+    margin-right: 0.5rem;
+  }
+}
+
+.open-chats {
+  .search {
+    background: $neutral50;
+    border-radius: 1rem;
+    padding: 0.5em;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
+
+  .text {
+    display: grid;
+    gap: 0.3em;
+  }
+
+  .last-message {
+    display: flex;
+    gap: 0.5em;
+
+    & p:last-of-type {
+      font-style: italic;
+    }
+  }
+}
+
+.nav-search {
+  display: flex;
+
+  .input {
+    margin-right: -0.75rem;
+    position: relative;
+
+    svg {
+      position: absolute;
+      left: 0;
+      top: -0.05rem;
+      cursor: pointer;
+    }
+  }
+
+  input {
+    padding-left: 2.5rem;
+    transition: width 0.25s ease;
+
+    &::placeholder {
+      color: inherit;
+      font: inherit;
+    }
+  }
+
+  .open-search {
+    margin-top: 4rem;
+  }
+
+  .text {
+    display: grid;
+    gap: 0.5rem;
+    
+    h3 {
+      font-size: 1.75rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}

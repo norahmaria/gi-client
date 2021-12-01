@@ -1,0 +1,280 @@
+// ## Imports ##
+
+@import '../scss/colors';
+@import '../scss/typography';
+@import '../scss/misc';
+
+// ## Resets ##
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+*::after
+*::before {
+  content: '';
+}
+
+*:focus
+*:hover {
+  outline: none;
+  border: none;
+}
+
+*::selection {
+  background-color: #FFD34F;
+  color: $black;
+}
+
+html {
+  font-size: 10px;
+
+  body {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    scroll-behavior: smooth;
+    font: $body;
+    line-height: 1;
+    background-color: $neutral50;
+  }
+  
+  input,
+  button
+  textarea {
+    font: inherit;
+    color: inherit;
+    border: none;
+    outline: none;
+    background: none;
+  }
+
+  
+  img, svg, picture {
+    display: block;
+    max-width: 100%;
+  }
+  
+  input {
+    color: inherit;
+  }
+
+  button, a {
+    cursor: pointer;
+  }
+  
+  button {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    text-align: inherit;
+    font-family: inherit;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  a:focus, a:hover {
+    outline: none;
+  }
+
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// ## Layout ## 
+
+.dashboard, .base {
+  width: 90vw;
+  display: grid;
+  gap: 3.5rem;
+
+  > *:not(header):not(.chats) {
+    width: 90vw;
+  }
+}
+
+.dashboard, .profile {
+  margin-top: 6.75rem;
+}
+
+.posts {
+  display: grid;
+  gap: 3.5rem;
+  padding-bottom: 3rem;
+}
+
+.post, .create, .card {
+  background: $white;
+  border-radius: 1rem;
+  box-shadow: $black-shadow;
+  padding: 1.5em;
+}
+
+// ## Miscellaneous ##
+
+.avatar-container {
+  position: relative;
+  
+  .dot {
+    top: 3.5rem;
+    right: 0rem;
+    background: $success500;
+    outline: 0.25rem solid $white;
+  }
+}
+
+.avatar {
+  border-radius: 50%;
+  object-position: center;
+  object-fit: cover;
+  width: 5rem;
+  height: 5rem;
+  min-width: 5rem;
+  min-height: 5rem;
+  background-color: #eeeef0;
+
+  &.small {
+    width: 3.65rem;
+    height: 3.65rem;
+    min-width: 3.65rem;
+    min-height: 3.65rem;
+  }
+
+  &.medium {
+    width: 4.35rem;
+    height: 4.35rem;
+    min-width: 4.35rem;
+    min-height: 4.35rem;
+  }
+
+  &.display {
+    width: 8rem;
+    height: 8rem;
+    min-width: 8rem;
+    min-height: 8rem;
+  }
+}
+
+.outliner {
+  position: absolute;
+  opacity: 0;
+  user-select: none;
+  z-index: -100;
+  left: -50%;
+  top: 0;
+}
+
+.dot {
+  background: $attentionEmoji;
+  outline: 0.25rem solid $neutral50;
+  border-radius: 50%;
+  width: 1.25rem;
+  height: 1.25rem;
+  min-width: 1.25rem;
+  min-height: 1.25rem;
+  max-width: 1.25rem;
+  max-height: 1.25rem;
+  position: absolute;
+  top: -0.5rem;
+  right: -0.6rem;
+
+  &.small {
+    width: 1.15rem;
+    height: 1.15rem;
+    min-width: 1.15rem;
+    min-height: 1.15rem;
+    max-width: 1.15rem;
+    max-height: 1.15rem;
+  }
+}
+
+img:not([src]) {
+  background: $neutral100;
+}
+
+.post.post-error {
+  background: $attentionEmoji;
+  box-shadow: $red-shadow;
+  font-weight: 500;
+  color: $white;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: visible;
+}
+
+// ## Imports Components ##
+
+@import '../components/Nav/nav';
+@import '../components/Post/post';
+@import '../components/Chats/chat';
+@import '../views/Profile/profile';
+
+@media screen and (min-width: 700px) {
+  .dashboard, .base {
+    width: 50rem;
+    display: grid;
+    gap: 3.5rem;
+  
+    > *:not(header):not(.chats) {
+      width: 50rem;
+      max-width: 50rem;
+    }
+  }
+
+  header {
+    width: 54rem;
+    padding: 2em 2rem 1.25rem 2rem;
+  }
+
+  .dashboard, .profile {
+    margin-top: 9rem;
+  }
+
+  .post, .create, .card {
+    width: 50rem;
+  }
+
+  .create {
+    label {
+      svg {
+        width: 3.5rem;
+      }
+    }
+  }
+
+  .nav-chats, .nav-notifications, .nav-user, .nav-search {
+    .open-notifications, .open-chats, .open-user, .open-search {
+      transform: translateX(calc(-50% - 1rem));
+      left: 50%;
+      max-height: 55vh;
+      width: 30rem;
+      margin-left: auto;
+    }
+
+    .open-user {
+      width: 20rem;
+    }
+  }
+}

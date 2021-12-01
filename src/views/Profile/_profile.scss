@@ -1,0 +1,123 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  .avatar {
+    width: 8rem;
+    height: 8rem;
+    min-width: 8rem;
+    min-height: 8rem;
+  }
+
+  .avatar-container.focus {
+    background-color: blue;
+    outline: 2px solid blue;
+  }
+
+  .text {
+    gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
+  .follow-btn, .message-btn {
+    transition: all 0.25s ease;
+    box-shadow: 0 0 0 rgba(255, 255, 255, 1);
+
+    &:hover, &:focus {
+      box-shadow:0px 5px 5px rgba(0, 0, 0, 0.15);
+      margin-top: -0.5rem;
+    }
+  }
+
+  .follow-btn {
+    &.following-true {
+      background: #FFD34F;
+
+      &:hover, &:focus {
+        box-shadow: $yellow-shadow;
+        margin-top: -0.5rem;
+      }
+    }
+  }
+
+  button[disabled] {
+    cursor: default;
+    color: $neutral300;
+  }
+
+  .follow-btn[disabled] {
+    color: $black;
+
+    &:hover, &:focus {
+      margin-top: auto;
+      box-shadow: none;
+    }
+  }
+}
+
+.buttons {
+  button, label {
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    height: 3.75rem;
+    padding: 0.75em;
+    border-radius: 0.5rem;
+    background: #eeeef0;
+    font: 500 1.4rem $ff;
+
+    svg {
+      height: 2.25rem;
+      width: 2.25rem;
+    }
+  }
+}
+
+.profile-controls {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  .controllers {
+    display: flex;
+    gap: 1rem;
+
+    > * {
+      cursor: pointer;
+    }
+
+    button {
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      svg {
+        width: 1.5rem;
+      }
+    }
+  }
+
+  svg.delete {    
+    path {
+      fill: #FF4E0D;
+    }
+
+    &:hover {
+      filter: drop-shadow($red-shadow)
+    }
+  }
+}
