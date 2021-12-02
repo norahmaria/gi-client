@@ -8,8 +8,8 @@ const getFeed = async (page: number, cursor: string | null) => {
 }
 
 const useGetFeed = () => {
-  const { setPosts, posts } = useContext(PostsContext)
-  const [ cursor, setCursor ] = useState<null | string>(null)
+  const { setPosts } = useContext(PostsContext)
+  const [ cursor ] = useState<null | string>(null)
 
   return useInfiniteQuery('feed', ({ pageParam = 0 }) => getFeed(pageParam, cursor), {
     keepPreviousData: true,

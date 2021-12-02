@@ -13,13 +13,13 @@ import type UserType from '../../types/User'
 const User = ({ profile }: { profile: UserType }) => {
   const { user } = useContext(UserContext)
   const [ focusOnInput, setFocusOnInput ] = useState(false)
-  const { add, open, openChats, chats } = useContext(ChatsContext)
+  const { add, open } = useContext(ChatsContext)
   const { username, avatar, followers, following, _id } = profile
   const [ avatarUpdate, setAvatarUpdate ] = useState(profile.avatar)
   const [ openAvatarEditing, setOpenAvatarEditing ] = useState(false)
   const { isFollowing, mutuals, unfollow, follow } = useFollowing(profile)
   
-  const { mutate: updateAvatar, isLoading: avatarLoading } = useUpdateUser()
+  const { mutate: updateAvatar } = useUpdateUser()
 
   useEffect(() => {
     if (avatarUpdate === avatar || user?._id !== profile._id) setOpenAvatarEditing(false)

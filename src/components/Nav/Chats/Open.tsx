@@ -9,7 +9,7 @@ import toRelativeTime from '../../../utils/toRelativeTime'
 const Open = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<"notifications" | "chats" | "user" | null>>}) => {
   const { user, online } = useContext(UserContext)
   const { chats, open, add } = useContext(ChatsContext)
-  const { isLoading, fetchNextPage, hasNextPage, error } = useGetChats()
+  const { isLoading, fetchNextPage, hasNextPage } = useGetChats()
   const { searchTerm, search, searchResults } = useSearch(true)
 
   return (

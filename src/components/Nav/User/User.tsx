@@ -9,7 +9,7 @@ import useDeleteUser from '../../../hooks/mutation/user/useDeleteUser'
 const User = ({ open, setOpen }: Types) => {
   const { user } = useContext(UserContext)
   const container = useRef<HTMLDivElement>(null)
-  const { mutate: remove } = useDeleteUser()
+  // const { mutate: remove } = useDeleteUser()
 
   useOutsideClick(container, '.click-user', () => {
     setOpen(alreadyOpen => {
