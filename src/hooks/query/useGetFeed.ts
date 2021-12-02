@@ -19,9 +19,13 @@ const useGetFeed = () => {
       return next <= max ? next : undefined
     },
     onSuccess: ({ pages }) => {
+      console.log('success post')
       const update = pages.flat().map(page => page.posts).flat()
       // setCursor(update[0]._id)
       setPosts(update)
+    },
+    onError: (err) => {
+      console.log(err)
     }
   })
 }
