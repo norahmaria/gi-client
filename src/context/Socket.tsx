@@ -2,7 +2,7 @@ import type Children from '../types/Children'
 import { createContext } from 'react'
 import { io } from 'socket.io-client'
 
-const socket = io('http://localhost:5005', {
+const socket = io('http://server-gi.herokuapp.com/', {
   withCredentials: true
 }) 
 
