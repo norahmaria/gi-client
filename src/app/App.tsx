@@ -1,6 +1,9 @@
 import { useContext } from 'react'
 import UserContext from '../context/User'
 
+// TODO: Fix routing issues in deployment.
+// <url>/u/annhelen is 'not found' for example
+
 import Base from '../views/Base/Base'
 import Sign from '../sign/Sign'
 import useGetMe from '../hooks/query/useGetMe'
