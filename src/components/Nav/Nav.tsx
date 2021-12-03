@@ -17,7 +17,6 @@ const Nav = () => {
     <header>
       <Link to="/" className="logo">Gi</Link>
 
-      
       <nav>
         <h2 className="outliner">Navigation</h2>
         <Search />

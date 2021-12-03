@@ -9,7 +9,7 @@ import toRelativeTime from '../../../utils/toRelativeTime'
 const Open = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<"notifications" | "chats" | "user" | null>>}) => {
   const { user, online } = useContext(UserContext)
   const { chats, open, add } = useContext(ChatsContext)
-  const { isLoading, fetchNextPage, hasNextPage } = useGetChats()
+  const { isLoading, fetchNextPage, hasNextPage, error } = useGetChats()
   const { searchTerm, search, searchResults } = useSearch(true)
 
   return (
@@ -28,9 +28,11 @@ const Open = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<"noti
         onChange={search}
         type="text" />
 
-      {isLoading && (
+      {isLoading ? (
         <div className="preview"><h4>Loading..</h4></div>
-      )}
+      ) : error ? (
+        <div className="preview error"><h4>Something went wrong, try again later.</h4></div>
+      ) : <></>}
 
       {!isLoading && !searchTerm && chats && chats.map(chat => {
         const { avatar, username, _id } = chat.users.filter(userInChat => userInChat._id !== user?._id)[0]
@@ -69,9 +71,7 @@ const Open = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<"noti
       })}
 
       {searchTerm && !searchResults[0] && (
-        <div className="preview">
-          <h4>No results</h4>
-        </div>
+        <div className="preview"><h4>No results</h4></div>
       )}
 
       {searchTerm && searchResults && searchResults.map(user => {

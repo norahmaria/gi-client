@@ -20,7 +20,6 @@ const Base = () => {
     socket.on('online/created', ({ userId }) => setOnline(prev => [userId, ...prev]))
 
     socket.on('online/removed', ({ userId }) => {
-      console.log('user logged out')
       setOnline(prev => {
         const mutable = [...prev]
         const index = mutable.indexOf(userId)

@@ -224,6 +224,15 @@ img:not([src]) {
   overflow: visible;
 }
 
+.error {
+  padding: 0.75em;
+  border-radius: 0.5rem;
+  background: $attentionEmoji;
+  box-shadow: $red-shadow;
+  font-weight: 500;
+  color: $white;
+}
+
 // ## Imports Components ##
 
 @import '../components/Nav/nav';

@@ -12,7 +12,7 @@ import { ReactComponent as ImageIcon } from '../../../assets/post/Image.svg'
 const Create = () => {
   const [ post, setPost ] = useState({ content: '', media: '' })
   const [ focusOnInput, setFocusOnInput ] = useState(false)
-  const { mutate } = useContext(PostsContext).useAdd()
+  const { mutate, error } = useContext(PostsContext).useAdd()
   const { user } = useContext(UserContext)
   
   const publish = (e: React.FormEvent<HTMLFormElement>) => {
@@ -82,6 +82,12 @@ const Create = () => {
           <PaperIcon />
         </button>
       </div>
+
+      {error && (
+        <div className="error" style={{ marginTop: '1rem' }}>
+          Something went wrong, try again later.
+        </div>
+      )}
     </form>
   )
 }

@@ -26,7 +26,6 @@ const Chats = ({ open: openState, setOpen }: Types) => {
 
   useEffect(() => {
     socket.on('chat/update', () => {
-      console.log('new chat')
       refetch()
     })
   }, [])

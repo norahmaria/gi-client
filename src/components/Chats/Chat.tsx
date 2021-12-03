@@ -16,11 +16,12 @@ const Chat = ({ chat }: { chat: ChatType }) => {
   const { close } = useContext(ChatsContext)
   const { user, online } = useContext(UserContext)
   const [ messages, setMessages ] = useState<MessageType[] | []>([])
+
   const dummy = useRef<HTMLDivElement>(null)
   const chatWith = chat.users.filter(({ _id }) => user?._id !== _id)[0]
 
   const { message, setMessage, sendMessage } = useMessaging(chat, user)
-  const { isLoading, hasNextPage, fetchNextPage } = useGetAndReadMessages(chat._id, setMessages)
+  const { isLoading, error, hasNextPage, fetchNextPage } = useGetAndReadMessages(chat._id, setMessages)
 
   const socket = useContext(SocketContext)
 
@@ -31,7 +32,6 @@ const Chat = ({ chat }: { chat: ChatType }) => {
   useEffect(() => {
     socket.on('message/created', ({ messageDocument, chatId }) => {
       if (chatId === chat._id) {
-        console.log(messageDocument)
         setMessages(prev => {
           const mutable = [...prev]
           mutable.push(messageDocument)
@@ -67,6 +67,12 @@ const Chat = ({ chat }: { chat: ChatType }) => {
         isLoading={isLoading} 
         hasNextPage={hasNextPage}
         fetchNextPage={fetchNextPage} >
+
+        {error && (
+          <div className="error" style={{ marginBottom: '-0.75rem' }}>
+            Something went wrong, try again later.
+          </div>
+        )}
 
         {messages.filter((message, index, array) => {
           return array.findIndex(({ _id }) => (_id === message._id)) === index

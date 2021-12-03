@@ -133,6 +133,15 @@ header {
   align-items: center;
   gap: 1em;
 
+  &.error {
+    background: $attentionEmoji;
+    box-shadow: $red-shadow;
+    border-radius: 0.5rem;
+    padding: 0.75em;
+    color: $white;
+    font-weight: 500;
+  }
+
   .unread {
     background: $attentionEmoji;
     border-radius: 50%;

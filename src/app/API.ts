@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const baseURL = 'https://server-gi.herokuapp.com/'
+// TODO: Set url back to heroku
+// const baseURL = 'https://server-gi.herokuapp.com/'
+const baseURL = 'http://localhost:5005/'
 const API = axios.create({ baseURL, withCredentials: true })
 
 export default API

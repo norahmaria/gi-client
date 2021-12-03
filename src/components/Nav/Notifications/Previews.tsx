@@ -8,7 +8,7 @@ import useReadNotification from '../../../hooks/mutation/useReadNotification'
 import UserContext from '../../../context/User'
 
 const Previews = ({ notifications, setOpen }: { notifications: NotificationType[], setOpen: React.Dispatch<React.SetStateAction<"notifications" | "chats" | "user" | null>> }) => {
-  const { isLoading, fetchNextPage, hasNextPage } = useGetNotifications()
+  const { isLoading, error, fetchNextPage, hasNextPage } = useGetNotifications()
   const { mutate: setSeen } = useSeenNotifications()
   const { mutate: read } = useReadNotification()
   const { online } = useContext(UserContext)
@@ -26,9 +26,11 @@ const Previews = ({ notifications, setOpen }: { notifications: NotificationType[
 
     <h3>Notifications</h3>
 
-    {isLoading && (
-      <div className="preview"><h4>Loading..</h4></div>
-    )}
+    {isLoading ? (
+        <div className="preview"><h4>Loading..</h4></div>
+      ) : error ? (
+        <div className="preview error"><h4>Something went wrong, try again later.</h4></div>
+      ) : <></>}
 
     {!isLoading && notifications && notifications.map(notif => {
       const { avatar, username } = notif.sender

@@ -7,13 +7,14 @@ import SocketContext from '../../../context/Socket'
 import PostsContext from '../../../context/Posts'
 import Comment from './Comment'
 
+// TODO: Add error notifications on comment upload and delete
+
 const Comments = ({ post }: { post: PostType }) => {
   const { id } = useParams() as { id: string }
   const socket = useContext(SocketContext)
   const { setPosts } = useContext(PostsContext)
   const [ content, setContent ] = useState('')
   const [ newComments, setNewComments ] = useState<CommentType[]>([])
-
   
   const addComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
