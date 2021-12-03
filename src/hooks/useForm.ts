@@ -48,7 +48,6 @@ const useForm: UseFormFn = (setErrors, callback, initial, options) => {
     callback(form)
 
     if (options) {
-      console.log('options added')
       const { clear, redirect } = options
 
       if (clear) setForm(initial)

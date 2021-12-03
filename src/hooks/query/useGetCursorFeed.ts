@@ -19,7 +19,6 @@ const useGetCursorFeed = () => {
       return next <= max ? next : undefined
     },
     onSuccess: ({ pages }) => {
-      console.log(pages)
       // const update = pages.flat().map(page => page.posts).flat()
       // setPosts(update)
     }
