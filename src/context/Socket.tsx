@@ -4,9 +4,10 @@ import { io } from 'socket.io-client'
 
 // TODO: Add error handling for sockets
 // TODO: Set url
-const socket = io('https://server-gi.herokuapp.com/', {
-    withCredentials: true
-  }) 
+
+const socket = io('ws://server-gi.herokuapp.com:30053/socket.io/?EIO=4&transport=websocket', {
+  withCredentials: true
+}) 
   
 // const socket = io('http://localhost:5005/', {
 //   withCredentials: true
