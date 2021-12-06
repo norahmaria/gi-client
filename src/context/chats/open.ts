@@ -11,7 +11,6 @@ type Types = {
 const useOpen = ({ setOpenChats, socket, id }: Types) => {
   socket.emit('chat/join', { chatId: id }, (chat: ChatType) => {
     setOpenChats(chats => {
-      console.log('opening still')
       const index = chats.findIndex(chat => chat._id === id)
 
       if (chats.length >= 3) chats.splice(0, 1)

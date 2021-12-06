@@ -22,12 +22,6 @@ const Profile = () => {
 
   useEffect(() => mutate(username), [username, user])
 
-  useEffect(() => {
-    if (error) {
-      console.log('EROR', (error as any).response.data.error)
-    }
-  }, [error])
-
   return (
     <div className="profile">
 
