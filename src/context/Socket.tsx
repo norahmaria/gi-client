@@ -5,8 +5,9 @@ import { io } from 'socket.io-client'
 // TODO: Add error handling for sockets
 // TODO: Set url
 
-const socket = io('wss://server-gi.herokuapp.com/', {
-  withCredentials: true
+const socket = io('https://server-gi.herokuapp.com/', {
+  withCredentials: true,
+  transports: ['websocket']
 }) 
   
 // const socket = io('http://localhost:5005/', {
