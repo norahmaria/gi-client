@@ -31,7 +31,7 @@ const Chats = ({ open: openState, setOpen }: Types) => {
   }, [])
   
   useEffect(() => {
-    const unreadMessage = chats.find(chat => chat?.latestMessage?.read === false && chat?.latestMessage?.sender._id !== user?._id)
+    const unreadMessage = chats.find(chat => chat?.latestMessage?.read === false && chat?.latestMessage?.sender?._id !== user?._id)
     
     setUnread(unreadMessage ? true : false)
   }, [chats, user?._id])
