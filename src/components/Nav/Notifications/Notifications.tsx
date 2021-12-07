@@ -32,7 +32,7 @@ const Notifications = ({ open, setOpen }: Types) => {
   }, [])
 
   useEffect(() => {
-    if (notifications.some(({ seen }) => seen === false)) setUnread(true)
+    if (notifications.some(prop => prop?.seen === false)) setUnread(true)
     if (open === 'notifications') setUnread(false)
   }, [notifications])
 
