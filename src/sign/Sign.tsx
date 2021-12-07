@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect} from 'react'
 
 import In from './In'
 import Up from './Up'
@@ -7,10 +7,20 @@ import './Sign.scss'
 
 const Sign = () => {
   const [signUp, setSignUp] = useState(false)
+  const [isSafari, setIsSafari] = useState(window.navigator.userAgent.indexOf('Safari') !== -1)
+
+  useEffect(() => {
+    setIsSafari(() => {
+      const safariCheck = window.navigator.userAgent.indexOf('Safari') !== -1
+      return safariCheck
+    })
+  }, [window.navigator])
 
   return (
     <div className="sign">
       <h1>Gi.</h1>
+
+      {isSafari && "On Safari? For this site to work properly go to Preferenes -> Privacy and turn off Prevent cross-site tracking"}
 
       { signUp ? <Up /> : <In /> }
 
