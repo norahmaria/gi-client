@@ -13,7 +13,11 @@ const Sign = () => {
     <div className="sign">
       <h1>Gi.</h1>
 
-      {isSafari && "On Safari? For this site to work properly go to Preferenes -> Privacy and turn off Prevent cross-site tracking"}
+      {isSafari && (
+        <div className="safari">
+        Safari detected, for this site to work properly go to Preferenes &#10140; Privacy and turn off Prevent cross-site tracking
+        </div>
+      )}
 
       { signUp ? <Up /> : <In /> }
 
