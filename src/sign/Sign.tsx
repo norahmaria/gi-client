@@ -15,7 +15,7 @@ const Sign = () => {
 
       {isSafari && (
         <div className="safari">
-        Safari detected, for this site to work properly go to Preferenes &#10140; Privacy and turn off Prevent cross-site tracking
+        Safari detected, for this site to work properly go to Preferenes &#10140; Privacy and <b>turn off Prevent cross-site tracking</b>
         </div>
       )}
 
