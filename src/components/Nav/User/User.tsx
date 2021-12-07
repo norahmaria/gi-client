@@ -4,7 +4,7 @@ import type { Types } from '../Nav'
 import SignOut from '../../../sign/Out'
 import UserContext from '../../../context/User'
 import useOutsideClick from '../../../hooks/useOutsideClick'
-import useDeleteUser from '../../../hooks/mutation/user/useDeleteUser'
+// import useDeleteUser from '../../../hooks/mutation/user/useDeleteUser'
 
 const User = ({ open, setOpen }: Types) => {
   const { user } = useContext(UserContext)

@@ -9,7 +9,7 @@ import Comments from './Comments/Comments'
 
 const Post = ({ post }: { post: PostType }) => {
   const { user, online } = useContext(UserContext)
-  const { content, media, creator, createdAt, _id } = post
+  const { content, media, creator, _id } = post
 
   return (
     <div className={`post ${media !== '' && 'media'}`}>

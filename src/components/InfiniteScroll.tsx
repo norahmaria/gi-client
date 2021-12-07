@@ -34,7 +34,7 @@ const InfiniteScroll: React.FC <Types> = ({ fetchNextPage, isLoading, hasNextPag
 
     container.addEventListener('scroll', onScroll)
     return () => container.removeEventListener('scroll', onScroll)
-  }, [fetchNextPage, isLoading, hasNextPage])
+  }, [fetchNextPage, isLoading, hasNextPage, className, byWindow])
 
   return (
     <div className={className} ref={ref}>

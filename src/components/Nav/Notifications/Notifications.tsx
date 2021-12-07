@@ -29,12 +29,13 @@ const Notifications = ({ open, setOpen }: Types) => {
 
   useEffect(() => {
     socket.on('notification/created', refetch)
+    return () => { socket.off('notification/created') }
   }, [])
 
   useEffect(() => {
     if (notifications.some(prop => prop?.seen === false)) setUnread(true)
     if (open === 'notifications') setUnread(false)
-  }, [notifications])
+  }, [notifications, open])
 
   return (
     <div className="nav-notifications" ref={container}>

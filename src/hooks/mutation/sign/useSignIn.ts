@@ -19,6 +19,7 @@ const useSignIn = (setErrors: React.Dispatch<React.SetStateAction<Errors | null>
   return useMutation(signIn, {
     onSuccess: (user: UserType) => {
       setUser(user)
+      localStorage.setItem('loggedIn', 'true')
     },
     onError: ({ response: { data: { errors }} }: any) => {
       setErrors(errors)

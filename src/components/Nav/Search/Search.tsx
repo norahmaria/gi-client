@@ -30,7 +30,7 @@ const Search = () => {
         return 0
       })
     })
-  }, [searchResults])
+  }, [searchResults, user?.following])
 
   return (
     <div className="nav-search" ref={container}>

@@ -14,7 +14,7 @@ const User = ({ profile }: { profile: UserType }) => {
   const { user } = useContext(UserContext)
   const [ focusOnInput, setFocusOnInput ] = useState(false)
   const { add, open } = useContext(ChatsContext)
-  const { username, avatar, followers, following, _id } = profile
+  const { username, avatar, followers, following } = profile
   const [ avatarUpdate, setAvatarUpdate ] = useState(profile.avatar)
   const [ openAvatarEditing, setOpenAvatarEditing ] = useState(false)
   const { isFollowing, mutuals, unfollow, follow } = useFollowing(profile)
@@ -23,7 +23,7 @@ const User = ({ profile }: { profile: UserType }) => {
 
   useEffect(() => {
     if (avatarUpdate === avatar || user?._id !== profile._id) setOpenAvatarEditing(false)
-  }, [avatarUpdate, profile, user])
+  }, [avatarUpdate, profile, user, avatar])
 
   useEffect(() => setAvatarUpdate(profile.avatar), [profile])
 

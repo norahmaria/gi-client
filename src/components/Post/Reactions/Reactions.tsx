@@ -35,19 +35,19 @@ const Reactions = ({ post }: { post: PostType }) => {
   const elements: Elements[] = [{
     Icon: Angry, type: 'angry',
     length: reactions.angry.length,
-    reacted: reactions.angry.includes((user as UserType)._id)
+    reacted: reactions.angry.includes((user as UserType)?._id)
   }, {
     Icon: Cry, type: 'cry',
     length: reactions.cry.length,
-    reacted: reactions.cry.includes((user as UserType)._id)
+    reacted: reactions.cry.includes((user as UserType)?._id)
   }, {
     Icon: Heart, type: 'heart',
     length: reactions.heart.length,
-    reacted: reactions.heart.includes((user as UserType)._id)
+    reacted: reactions.heart.includes((user as UserType)?._id)
   }, {
     Icon: Laugh, type: 'laugh',
     length: reactions.laugh.length,
-    reacted: reactions.laugh.includes((user as UserType)._id)
+    reacted: reactions.laugh.includes((user as UserType)?._id)
   }, ]
 
   return (

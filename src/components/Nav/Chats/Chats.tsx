@@ -28,6 +28,8 @@ const Chats = ({ open: openState, setOpen }: Types) => {
     socket.on('chat/update', () => {
       refetch()
     })
+
+    return () => { socket.off('chat/update') }
   }, [])
   
   useEffect(() => {

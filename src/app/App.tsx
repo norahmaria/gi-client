@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import UserContext from '../context/User'
 
 import Base from '../views/Base/Base'
@@ -13,10 +13,15 @@ import './App.scss'
 
 const App = () => {
   const { user } = useContext(UserContext)
+  const [ isLoggedin, setIsLoggedIn ] = useState(localStorage.getItem('loggedIn') === 'true')
 
   useGetMe()
 
-  if (!user) return <Sign />
+  useEffect(() => {
+    setIsLoggedIn(localStorage.getItem('loggedIn') === 'true')
+  }, [user])
+
+  if (!user && !isLoggedin) return <Sign />
 
   return (
     <NotificationsProvider>

@@ -11,7 +11,10 @@ const useGetMe = () => {
   const { setUser } = useContext(UserContext)
 
   return useQuery('user', getMe, {
-    onSuccess: (user) => setUser(user),
+    onSuccess: (user) => {
+      setUser(user)
+      localStorage.setItem('loggedIn', 'true')
+    },
     onError: () => setUser(null)
   })
 }
