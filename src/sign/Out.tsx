@@ -9,8 +9,14 @@ const Out = () => {
 
   const signOut = async() => {
     await API.get('/sign/out')
-    setUser(null)
-    setOpenChats([])
+      .then(() => {
+        console.log('Signed Out')
+        setUser(null)
+        setOpenChats([])
+      })
+      .catch(err => console.log(err))
+    // setUser(null)
+    // setOpenChats([])
   }
   
   return (
