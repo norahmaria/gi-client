@@ -1,4 +1,5 @@
-import { useState, useEffect} from 'react'
+import { useState} from 'react'
+import { isSafari } from 'react-device-detect'
 
 import In from './In'
 import Up from './Up'
@@ -7,14 +8,6 @@ import './Sign.scss'
 
 const Sign = () => {
   const [signUp, setSignUp] = useState(false)
-  const [isSafari, setIsSafari] = useState(window.navigator.userAgent.indexOf('Safari') !== -1)
-
-  useEffect(() => {
-    setIsSafari(() => {
-      const safariCheck = window.navigator.userAgent.indexOf('Safari') !== -1
-      return safariCheck
-    })
-  }, [window.navigator])
 
   return (
     <div className="sign">
