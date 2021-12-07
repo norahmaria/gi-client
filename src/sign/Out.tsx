@@ -8,7 +8,7 @@ const Out = () => {
   const { setOpenChats } = useContext(ChatsContext)
 
   const signOut = async() => {
-    await API.get('/sign/out').catch(err => console.log(err))
+    await API.get('/sign/out')
     setUser(null)
     setOpenChats([])
   }
