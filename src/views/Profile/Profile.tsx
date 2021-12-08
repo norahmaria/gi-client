@@ -20,7 +20,7 @@ const Profile = () => {
   const { mutate, error } = useGetProfile(setProfile)
   const { isLoading, fetchNextPage, hasNextPage } = useGetPostsByUser(username)
 
-  useEffect(() => mutate(username), [username, user])
+  useEffect(() => mutate(username), [username, user, mutate])
 
   return (
     <div className="profile">

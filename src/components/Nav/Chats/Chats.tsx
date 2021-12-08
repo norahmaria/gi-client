@@ -30,7 +30,7 @@ const Chats = ({ open: openState, setOpen }: Types) => {
     })
 
     return () => { socket.off('chat/update') }
-  }, [])
+  }, [socket])
   
   useEffect(() => {
     const unreadMessage = chats.find(chat => chat?.latestMessage?.read === false && chat?.latestMessage?.sender?._id !== user?._id)

@@ -58,6 +58,8 @@
 
     h5 {
       font-size: 1.5rem;
+      font-weight: 500;
+      padding-bottom: 0.25rem;
     }
 
     .content {
@@ -103,14 +105,14 @@
 
   p {
     display: flex;
-    margin-top: 0.25rem;
-    font: italic 1.4rem $ff;
+    margin-top: 0.6rem;
+    font: 300 1.3rem $ff;
     align-items: center;
   }
 
   svg {
     width: 1.5rem;
-    margin-right: 0.75rem;
+    margin-left: 0.75rem;
   }
 }
 

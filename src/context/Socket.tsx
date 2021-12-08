@@ -3,16 +3,15 @@ import { createContext } from 'react'
 import { io } from 'socket.io-client'
 
 // TODO: Add error handling for sockets
-// TODO: Set url
 
-const socket = io('https://server-gi.herokuapp.com/', {
-  withCredentials: true,
-  transports: ['websocket']
-}) 
+// const socket = io('https://server-gi.herokuapp.com/', {
+//   withCredentials: true,
+//   transports: ['websocket']
+// }) 
   
-// const socket = io('http://localhost:5005/', {
-//   withCredentials: true
-// })
+const socket = io('http://localhost:5005/', {
+  withCredentials: true
+})
 
 const SocketContext = createContext(socket)
 

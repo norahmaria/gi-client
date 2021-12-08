@@ -41,7 +41,7 @@ const Chat = ({ chat }: { chat: ChatType }) => {
     })
 
     return () => { socket.off('message/created') }
-  }, [chat._id])
+  }, [chat._id, socket])
 
   return (
     <div className="chat">

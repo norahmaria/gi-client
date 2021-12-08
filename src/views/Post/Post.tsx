@@ -17,8 +17,9 @@ const PostView = () => {
 
   useEffect(() => {
     setIndex(() => posts.findIndex(({ _id }) => _id === id))
-    index > -1 ? setIsInState(true) : mutate(id)
-  }, [isInState, id, posts])
+
+    posts.findIndex(({ _id }) => _id === id) > -1 ? setIsInState(true) : mutate(id)
+  }, [isInState, id, posts, mutate])
 
   return (
     <div className="dashboard">

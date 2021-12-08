@@ -30,6 +30,7 @@ const Comment = ({ comment, postId, newComment }: { comment: CommentType, post
         </div>
 
         <p>
+          {toRelativeTime(createdAt, true)} {toRelativeTime(createdAt, true) !== 'Now' ? 'ago' : ''}
           {!newComment && comment.creator.username === user?.username && (
             <button className="delete-btn" onClick={e => {
               e.preventDefault()
@@ -38,7 +39,6 @@ const Comment = ({ comment, postId, newComment }: { comment: CommentType, post
               <DeleteIcon />
             </button>
           )}
-          {toRelativeTime(createdAt, true)} {toRelativeTime(createdAt, true) !== 'Now' ? 'ago' : ''}
         </p>
         
       </div>

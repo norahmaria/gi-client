@@ -12,19 +12,19 @@ type Types = {
 const InfiniteScroll: React.FC <Types> = ({ fetchNextPage, isLoading, hasNextPage, children, className, byWindow, reverse }) => {
   const ref = useRef<HTMLDivElement>(null)
 
-  const isBottom = ({ current }: React.RefObject<HTMLDivElement>) => {
-    if (!current) return false
-    const { scrollHeight, scrollTop, clientHeight } = current
-
-    const client = current.getBoundingClientRect().bottom <= window.innerHeight + 30
-    const div = scrollHeight - scrollTop === clientHeight
-    const reverse = scrollTop <= 40
-
-    if (reverse && !byWindow) return reverse
-    return byWindow ? client : div
-  }  
-
   useEffect(() => {
+    const isBottom = ({ current }: React.RefObject<HTMLDivElement>) => {
+      if (!current) return false
+      const { scrollHeight, scrollTop, clientHeight } = current
+  
+      const client = current.getBoundingClientRect().bottom <= window.innerHeight + 30
+      const div = scrollHeight - scrollTop === clientHeight
+      const reverse = scrollTop <= 40
+  
+      if (reverse && !byWindow) return reverse
+      return byWindow ? client : div
+    }  
+  
     const onScroll = () => {
       const shouldFetch = !isLoading && hasNextPage && isBottom(ref)
       if (shouldFetch) fetchNextPage()

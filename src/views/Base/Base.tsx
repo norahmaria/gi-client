@@ -29,13 +29,15 @@ const Base = () => {
     })
 
     socket.on('disconnect', () => {
-      console.log('socket disconnected')
+      // add disconnect features
     })
 
     return () => {
+      socket.off('online/created')
+      socket.off('online/removed')
       socket.disconnect()
     }
-  }, [])
+  }, [socket])
   
   return (
     <div className="base">

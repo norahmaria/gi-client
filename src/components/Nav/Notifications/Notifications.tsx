@@ -30,7 +30,7 @@ const Notifications = ({ open, setOpen }: Types) => {
   useEffect(() => {
     socket.on('notification/created', refetch)
     return () => { socket.off('notification/created') }
-  }, [])
+  }, [socket])
 
   useEffect(() => {
     if (notifications.some(prop => prop?.seen === false)) setUnread(true)
