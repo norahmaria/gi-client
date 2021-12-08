@@ -15,7 +15,6 @@ const Base = () => {
 
   useEffect(() => {
     socket.connect()
-    console.log('Socket Connected allegedly')
 
     socket.emit('online', {}, (online: string[]) => setOnline(online))
     socket.on('online/created', ({ userId }) => setOnline(prev => [userId, ...prev]))
@@ -27,6 +26,10 @@ const Base = () => {
         if (index > -1) mutable.splice(index, 1)
         return mutable
       })
+    })
+
+    socket.on('disconnect', () => {
+      console.log('socket disconnected')
     })
 
     return () => {
