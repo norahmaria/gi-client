@@ -55,7 +55,11 @@
 
 
 @media screen and (max-width: 400px) {
-  .reactions > button {
+  .reactions button {
     cursor: pointer;
+  }
+
+  .reactions svg {
+    cursor: auto;
   }
 }

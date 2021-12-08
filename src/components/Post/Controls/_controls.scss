@@ -53,7 +53,11 @@
 
 
 @media screen and (max-width: 400px) {
-  .controls > button {
+  .controls button {
     cursor: pointer;
+  }
+
+  .controls svg {
+    cursor: auto;
   }
 }
