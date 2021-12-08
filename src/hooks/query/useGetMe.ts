@@ -15,7 +15,10 @@ const useGetMe = () => {
       setUser(user)
       localStorage.setItem('loggedIn', 'true')
     },
-    onError: () => setUser(null)
+    onError: () => {
+      localStorage.clear()
+      setUser(null)
+    }
   })
 }
 
