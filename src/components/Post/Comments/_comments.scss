@@ -123,3 +123,9 @@
     transform-origin: center;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .comments > button[type="submit"] {
+    cursor: pointer;
+  }
+}

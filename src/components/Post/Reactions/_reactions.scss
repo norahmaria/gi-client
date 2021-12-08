@@ -52,3 +52,10 @@
     filter: drop-shadow($red-shadow);
   }
 }
+
+
+@media screen and (max-width: 400px) {
+  .reactions > button {
+    cursor: pointer;
+  }
+}
