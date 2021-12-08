@@ -51,10 +51,11 @@ const Comments = ({ post }: { post: PostType }) => {
           placeholder="Add a comment..." />
         <button type="submit"><PaperIcon /></button>
       </form>
-
-      {newComments.map(comment => (
-        <Comment key={comment._id} comment={comment} postId={post._id} newComment={true} />
-      ))}
+      
+      {newComments.map(comment => {
+        const index = post.comments.map(({ _id }) => _id).indexOf(comment._id)
+        if (index < 0 || id === undefined) return ( <Comment key={comment._id} comment={comment} postId={post._id} newComment={true} /> )
+      })}
 
       {id !== undefined && (
         post.comments.map(comment => (

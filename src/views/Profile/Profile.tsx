@@ -40,12 +40,7 @@ const Profile = () => {
           </>
         )}
 
-        {isLoading && !error ? (
-          <>
-            <PostSkeleton/>
-            <PostSkeleton/>
-          </>
-        ) : !user || !profile ? (
+        {!user || !profile ? (
           <PostSkeleton/>
         ) : (
           <User profile={profile} />
@@ -61,6 +56,13 @@ const Profile = () => {
           .map((post) => (
             <Post key={post._id} post={post} />
           )
+        )}
+
+        {isLoading && (
+          <>
+            <PostSkeleton/>
+            <PostSkeleton/>
+          </>
         )}
 
       </InfiniteScroll>

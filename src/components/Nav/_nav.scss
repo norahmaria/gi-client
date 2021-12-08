@@ -48,7 +48,7 @@ header {
 
     &:focus {
       outline: none;
-      transform: scale(1.25) rotate(20deg);
+      transform: scale(1.25);
     }
   }
 
@@ -59,7 +59,7 @@ header {
     
     svg:focus {
       outline: none;
-      transform: scale(1.25) rotate(20deg);
+      transform: scale(1.25);
     }
   }
 }
@@ -104,6 +104,7 @@ header {
   width: 20rem;
   padding: 0;
   gap: 0;
+  overflow-y: hidden;
 
   button, a {
     padding: 1em;

@@ -47,10 +47,10 @@ const Chat = ({ chat }: { chat: ChatType }) => {
     <div className="chat">
       <div className="chat-info">
         <div>
-          <div className="avatar-container">
+          <Link to={`u/${chatWith.username}`} className="avatar-container">
             <img className="avatar small" src={chatWith.avatar} alt="" />
             {online.includes(chatWith._id) && <div className="dot"></div>}
-          </div>
+          </Link>
           <Link to={`/u/${chatWith.username}`}>
             <h4>{chatWith.username}</h4>
           </Link>
