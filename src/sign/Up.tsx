@@ -25,7 +25,7 @@ const Up = () => {
       <form className="form">
         <label tabIndex={0} className="avatar-label" htmlFor="avatar">
           Pick an avatar →
-          <img style={{ cursor: 'pointer', maxHeight: '10vh' }} className="avatar display" src={form.avatar} alt="" />
+          <img style={{ cursor: 'pointer', maxHeight: '5vh' }} className="avatar display" src={form.avatar} alt="" />
         </label>
         <input 
           tabIndex={-1}
