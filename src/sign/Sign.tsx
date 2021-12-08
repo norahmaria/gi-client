@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useEffect, useState} from 'react'
 import { isSafari } from 'react-device-detect'
 
 import In from './In'
@@ -8,9 +8,20 @@ import './Sign.scss'
 
 const Sign = () => {
   const [signUp, setSignUp] = useState(false)
+  const [height, setHeight] = useState(`${window.innerHeight}px`)
+
+  const resetHeight = () => {
+    setHeight(`${window.innerHeight}px`)
+  }
+  
+  useEffect(() => {
+    window.addEventListener('resize', resetHeight)
+
+    return () => window.removeEventListener('resize', resetHeight)
+  }, [])
 
   return (
-    <div className="sign">
+    <div className="sign" style={{ height }}>
       <h1>Gi.</h1>
 
       {isSafari && (
