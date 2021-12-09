@@ -5,6 +5,8 @@ import UserContext from '../../../context/User'
 import PostsContext from '../../../context/Posts'
 import growTextArea from '../../../utils/growTextArea'
 
+// TODO: Add a regret button, if you don't want to post afterall. And return the height of textarea after submit.
+
 import { ReactComponent as PaperIcon } from '../../../assets/post/Paperplane.svg'
 import { ReactComponent as CloseIcon } from '../../../assets/Close.svg'
 import { ReactComponent as ImageIcon } from '../../../assets/post/Image.svg'
@@ -39,9 +41,15 @@ const Create = () => {
         <textarea 
           onKeyDown={growTextArea}
           value={post.content} 
-          onChange={(e) => setPost(prev => {
-            return { ...prev, content: e.target.value }
-          })} 
+          onChange={(e) => {
+            setPost(prev => {
+              return { ...prev, content: e.target.value }
+            })
+            
+            if (e.target.value === '') {
+              (e.target as HTMLElement).style.height = 'auto';
+            }
+          }} 
           placeholder="What's up?" />
 
         <input 
