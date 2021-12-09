@@ -72,12 +72,9 @@
     font-size: 1.6rem;
     padding-top: 2.25rem;
 
-    &:placeholder-shown {
-      height: auto;
-    }
-
     &::placeholder {
       color: inherit;
+      height: auto;
     }
 
     &:focus, &:hover {
