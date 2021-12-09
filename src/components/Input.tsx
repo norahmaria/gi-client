@@ -13,16 +13,11 @@ const Input = ({ name, value, label, changeEvent, error }: Types) => {
   const type = name.toLowerCase().includes('password') ? 'password' : 'text'
   
   return (
-    <div className={`input ${error ? 'error' : ''}`}>
+    <div className="input">
       <label>
         {error && error !== undefined ? (
           <><AngryIcon />{error}</>
         ): label}
-        {/* {error && error !== undefined && (
-          <div className="error-message">
-            {error}
-          </div>
-        )} */}
       </label>
       <input 
         autoComplete="off"
