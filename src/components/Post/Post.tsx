@@ -15,7 +15,9 @@ const Post = ({ post }: { post: PostType }) => {
     <div className={`post ${media !== '' && 'media'}`}>
       {media !== '' && (
         <div className="media-content">
-          <img src={media} alt="" />
+          <Link to={`/p/${_id}`}>
+            <img src={media} alt="" />
+          </Link>
         </div>
       )}
 

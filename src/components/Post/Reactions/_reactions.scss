@@ -53,6 +53,24 @@
   }
 }
 
+.comment-count {
+  width: 100%;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  justify-content: flex-end;
+
+  svg.comment-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+
+    &:hover, &:focus {
+      filter: drop-shadow(0 0 0 #fff)
+    }
+  }
+}
+
 
 @media screen and (max-width: 400px) {
   .reactions button {

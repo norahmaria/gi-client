@@ -52,7 +52,7 @@ const Search = () => {
           autoComplete="off"
           id="search-input"
           style={{
-            width: openSearch ? "8rem" : '0'
+            width: openSearch ? "9.25rem" : '0'
           }}
           onChange={search} 
           value={searchTerm} 

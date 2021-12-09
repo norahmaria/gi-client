@@ -11,6 +11,7 @@ import growTextArea from '../../utils/growTextArea'
 import useMessaging from '../../hooks/useMessaging'
 
 import { ReactComponent as CloseIcon } from '../../assets/Close.svg'
+import toRelativeTime from '../../utils/toRelativeTime'
 
 const Chat = ({ chat }: { chat: ChatType }) => {
   const { close } = useContext(ChatsContext)
@@ -84,8 +85,12 @@ const Chat = ({ chat }: { chat: ChatType }) => {
               className={`message-container user-${isUser}`} 
               key={message._id}>
               {!isUser && <img className="avatar mini" src={chatWith.avatar} alt="" />}
-              <div className="message">
-                {message.message}
+
+              <div className="text">
+                <div className="message">
+                  {message.message}
+                </div>
+                <p>{toRelativeTime(message.createdAt)}</p>
               </div>
             </div>
           )
@@ -98,7 +103,7 @@ const Chat = ({ chat }: { chat: ChatType }) => {
         <textarea 
           onKeyDown={growTextArea} 
           value={message} 
-          placeholder="Aa"
+          placeholder={`Message @${chatWith.username}`}
           onKeyPress={(e) => {
             if (e.key === 'Enter') sendMessage(e)
           }}

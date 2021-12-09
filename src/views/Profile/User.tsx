@@ -90,7 +90,7 @@ const User = ({ profile }: { profile: UserType }) => {
             className={`follow-btn following-${isFollowing}`}
             disabled={user?._id === profile._id} 
             onClick={() => isFollowing ? unfollow() : follow()}>
-            {isFollowing ? <StarEyesIcon /> : <CryIcon />}
+            {user?._id === profile._id ? <StarEyesIcon /> : isFollowing ? <StarEyesIcon /> : <CryIcon />}
             {followers.length} Followers
           </button>
 

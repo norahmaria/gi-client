@@ -1,12 +1,16 @@
 import { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 import PostsContext from '../../../context/Posts'
 import PostType from '../../../types/Post'
+
 import { ReactComponent as DotsIcon } from '../../../assets/Dots.svg'
 
 const Controls = ({ post }: { post: PostType }) => {
   const { useRemove } = useContext(PostsContext)
   const { mutate: remove, error } = useRemove()
   const [ open, setOpen ] = useState(false)
+  const navigate = useNavigate()
 
   return (
     <div className="controls">
@@ -26,6 +30,7 @@ const Controls = ({ post }: { post: PostType }) => {
             e.preventDefault()
             remove(post._id)
             setOpen(false)
+            navigate('/')
           }}>Delete</button>
         </div>
       )}

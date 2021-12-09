@@ -43,11 +43,9 @@ const Dashboard = () => {
         isLoading={isLoading} 
         fetchNextPage={fetchNextPage} >
 
-        {posts && posts.map((post: PostType) => {
-          if (post && post._id) return (
-            <Post key={post._id} post={post} />
-          )
-        })}
+        {posts && posts.filter((post: PostType) => post && post._id).map((post: PostType) => (
+          <Post key={post._id} post={post} />
+        ))}
         
       </InfiniteScroll>
     </main>

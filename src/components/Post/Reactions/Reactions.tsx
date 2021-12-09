@@ -1,10 +1,12 @@
 import { useContext } from 'react'
+import { Link } from 'react-router-dom'
 import type PostType from '../../../types/Post'
 import UserContext from '../../../context/User'
 import SocketContext from '../../../context/Socket'
 import PostsContext from '../../../context/Posts'
 import UserType from '../../../types/User'
 
+import { ReactComponent as CommentIcon } from '../../../assets/nav/Chat.svg'
 import { ReactComponent as Angry } from '../../../assets/emoji/Angry.svg'
 import { ReactComponent as Cry } from '../../../assets/emoji/Cry.svg'
 import { ReactComponent as Heart } from '../../../assets/emoji/Heart.svg'
@@ -61,6 +63,9 @@ const Reactions = ({ post }: { post: PostType }) => {
         </button>
       ))}
       <b>{elements.map(({ length }) => length).reduce((prev, next) => prev + next, 0)}</b>
+      <Link to={`/p/${_id}`} className="comment-count">
+        {post.comments.length} <CommentIcon className="comment-icon" />
+      </Link>
     </div>
   )
 }
