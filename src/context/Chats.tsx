@@ -35,9 +35,24 @@ export const ChatsProvider = ({ children }: Children) => {
   }
 
   useEffect(() => {
+    const removeChatOnWindowSize = () => {
+      if (window.innerWidth < 700) {
+        setOpenChats(prev => {
+          const mutable = [...prev]
+          const first = mutable[0]
+  
+          if (first) return [first]
+          return prev
+        })
+      }
+    }
+
+    window.addEventListener('resize', removeChatOnWindowSize)
+
     return () => {
       setChats([])
       setOpenChats([])
+      window.removeEventListener('resize', removeChatOnWindowSize)
     }
   }, [])
 
