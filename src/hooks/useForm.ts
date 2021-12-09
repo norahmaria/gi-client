@@ -34,10 +34,8 @@ const useForm: UseFormFn = (setErrors, callback, initial, options) => {
       const mutable = {...prev}
 
       if (!Object.keys(mutable)[0]) {
-        console.log('object keys check', !Object.keys(mutable)[0])
         return null
       } else if (mutable && mutable[name]) {
-        console.log('previous', mutable[name])
         delete mutable[name]
       }
 
