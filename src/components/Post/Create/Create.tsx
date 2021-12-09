@@ -32,9 +32,21 @@ const Create = () => {
       )}
 
       <div className="toolbar">
+        <div className="avatar-container">
         <Link to={`/u/${user?.username}`}>
           <img className="avatar" src={user?.avatar} alt="" />
         </Link>
+        {(post.content !== '' || post.media !== '') && (
+        <button 
+          className="avatar cancel" 
+          style={{ marginTop: '1rem' }}
+          onClick={() => {
+            setPost({ content: '', media: '' })
+          }}>
+          <CloseIcon />
+        </button>
+      )}
+        </div>
 
         <textarea 
           style={{
@@ -92,17 +104,6 @@ const Create = () => {
         <div className="error" style={{ marginTop: '1rem' }}>
           Something went wrong, try again later.
         </div>
-      )}
-
-      {(post.content !== '' || post.media !== '') && (
-        <button 
-          className="cancel" 
-          style={{ marginTop: '1rem' }}
-          onClick={() => {
-            setPost({ content: '', media: '' })
-          }}>
-          Cancel
-        </button>
       )}
     </form>
   )

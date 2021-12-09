@@ -5,8 +5,6 @@ import useForm from '../hooks/useForm'
 import useSignUp from '../hooks/mutation/sign/useSignUp'
 import Input from '../components/Input'
 
-// TODO: Add a bit more to the welcome card, it's a lil short - uneven content.
-
 const Up = () => {
   const [ errors, setErrors ] = useState<null | Errors>(null)
   const signInForm = {
