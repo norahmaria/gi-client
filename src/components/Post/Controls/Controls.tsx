@@ -24,7 +24,7 @@ const Controls = ({ post }: { post: PostType }) => {
         <div className="open-controls">
           <button onClick={e => {
             e.preventDefault()
-            remove(post._id)
+            if (post._id) remove(post._id)
             setOpen(false)
           }}>Delete</button>
         </div>
