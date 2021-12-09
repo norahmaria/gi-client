@@ -39,6 +39,9 @@ const Create = () => {
         </Link>
 
         <textarea 
+          style={{
+            height: post.content === '' ? 'auto' : ''
+          }}
           onKeyDown={growTextArea}
           value={post.content} 
           onChange={(e) => {
