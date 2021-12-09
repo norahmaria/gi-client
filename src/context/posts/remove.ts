@@ -12,7 +12,7 @@ const useRemovePost = (setPosts: setPostsType) => {
     onSuccess: ({ id }: { id: string }) => {
       setPosts((postsInState: PostType[]) => {
         const mutate = [...postsInState]
-        const index = mutate.findIndex(post => post._id === id)
+        const index = mutate.findIndex(post => post?._id === id)
   
         if (index > -1) delete mutate[index]
         return mutate
