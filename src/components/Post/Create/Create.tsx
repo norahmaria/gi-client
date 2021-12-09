@@ -5,8 +5,6 @@ import UserContext from '../../../context/User'
 import PostsContext from '../../../context/Posts'
 import growTextArea from '../../../utils/growTextArea'
 
-// TODO: Add a regret button, if you don't want to post afterall. And return the height of textarea after submit.
-
 import { ReactComponent as PaperIcon } from '../../../assets/post/Paperplane.svg'
 import { ReactComponent as CloseIcon } from '../../../assets/Close.svg'
 import { ReactComponent as ImageIcon } from '../../../assets/post/Image.svg'
@@ -98,7 +96,7 @@ const Create = () => {
 
       {(post.content !== '' || post.media !== '') && (
         <button 
-          className="error" 
+          className="cancel" 
           style={{ marginTop: '1rem' }}
           onClick={() => {
             setPost({ content: '', media: '' })
