@@ -5,6 +5,7 @@ import UserContext from '../../../context/User'
 import SocketContext from '../../../context/Socket'
 import PostsContext from '../../../context/Posts'
 import UserType from '../../../types/User'
+import Tooltip from '../../Tooltip'
 
 import { ReactComponent as CommentIcon } from '../../../assets/nav/Chat.svg'
 import { ReactComponent as Angry } from '../../../assets/emoji/Angry.svg'
@@ -55,12 +56,13 @@ const Reactions = ({ post }: { post: PostType }) => {
   return (
     <div className="reactions">
       {elements.map(({ Icon, type, length, reacted }) => (
-        <button 
-          key={type}
+        <Tooltip key={type} delay={300} direction="top" content={length.toString()}>
+          <button 
           onClick={e => react(e, type)}
           className={`${type} ${reacted ? 'reacted' : ''}`}>
-          <Icon className={type} />
-        </button>
+            <Icon className={type} />
+          </button>
+        </Tooltip>
       ))}
       <b>{elements.map(({ length }) => length).reduce((prev, next) => prev + next, 0)}</b>
       <Link to={`/p/${_id}`} className="comment-count">

@@ -64,25 +64,22 @@ const User = ({ profile }: { profile: UserType }) => {
         <img className="avatar" src={avatarUpdate} alt="" />
       )}
 
+      {user?._id === profile._id && openAvatarEditing && (
+        <button onClick={(e) => {
+            if (openAvatarEditing) {
+              e.preventDefault()
+              updateAvatar(avatarUpdate)
+              setOpenAvatarEditing(false)
+            }
+          }}
+          className="avatar-save">
+          <CheckIcon />
+        </button>
+      )}
+
       <div className="text">
         <div className="profile-controls">
           <h3>{username}</h3>
-
-          {user?._id === profile._id && (
-            <div className="controllers">
-              {openAvatarEditing && (
-                <button onClick={(e) => {
-                  if (openAvatarEditing) {
-                    e.preventDefault()
-                    updateAvatar(avatarUpdate)
-                    setOpenAvatarEditing(false)
-                  }
-                }}>
-                  Save <CheckIcon />
-                </button>
-              )}
-            </div>
-          )}
         </div>
 
         <div className="buttons">

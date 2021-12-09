@@ -34,7 +34,12 @@ const Open = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<"noti
         <div className="preview error"><h4>Something went wrong, try again later.</h4></div>
       ) : <></>}
 
-      {!isLoading && !searchTerm && chats && chats.map(chat => {
+      {!isLoading && !searchTerm && chats && chats.sort((prev, next) => {
+        if (!prev?.latestMessage || !next?.latestMessage) return 0
+        if (prev.latestMessage.createdAt < next.latestMessage.createdAt) return 1
+        if (prev.latestMessage.createdAt > next.latestMessage.createdAt) return -1
+        return 0
+      }).map(chat => {
         const { avatar, username, _id } = chat.users.filter(userInChat => userInChat._id !== user?._id)[0]
         const unread = chat.latestMessage && chat.latestMessage.sender._id !== user?._id && chat.latestMessage.read === false
 

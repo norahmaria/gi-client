@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { ReactComponent as SmileIcon } from '../assets/emoji/Smile.svg'
 import useForm from '../hooks/useForm'
 import useSignIn from '../hooks/mutation/sign/useSignIn'
@@ -14,10 +14,6 @@ const In = () => {
 
   const { mutate } = useSignIn(setErrors)
   const { form, setInput, sendForm } = useForm(setErrors, mutate, signInForm)
-
-  useEffect(() => {
-    console.log('ERRORS', errors, errors !== null)
-  }, [errors])
 
   return (
     <div className="in">

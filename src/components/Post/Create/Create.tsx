@@ -11,14 +11,19 @@ import { ReactComponent as ImageIcon } from '../../../assets/post/Image.svg'
 
 const Create = () => {
   const [ post, setPost ] = useState({ content: '', media: '' })
+  const [ emptyPost, setEmptyPost ] = useState(false)
   const [ focusOnInput, setFocusOnInput ] = useState(false)
   const { mutate, error } = useContext(PostsContext).useAdd()
   const { user } = useContext(UserContext)
   
   const publish = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    mutate(post)
-    setPost({ content: '', media: '' })
+    if (post.content === '') {
+      setEmptyPost(true)
+    } else {
+      mutate(post)
+      setPost({ content: '', media: '' })
+    }
   }
 
   return (
@@ -57,6 +62,10 @@ const Create = () => {
           onChange={(e) => {
             setPost(prev => {
               return { ...prev, content: e.target.value }
+            })
+            setEmptyPost(prev => {
+              if (prev) return e.target.value === ''
+              return prev
             })
           }} 
           placeholder="What's up?" />
@@ -103,6 +112,12 @@ const Create = () => {
       {error && (
         <div className="error" style={{ marginTop: '1rem' }}>
           Something went wrong, try again later.
+        </div>
+      )}
+
+      {emptyPost && (
+        <div className="error" style={{ marginTop: '1rem' }}>
+          You can't publish an empty post.
         </div>
       )}
     </form>

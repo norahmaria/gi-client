@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   gap: 2rem;
+  position: relative;
 
   .avatar {
     width: 8rem;
@@ -83,8 +84,8 @@
   display: flex;
   width: 100%;
   align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
+  // justify-content: space-between;
+  gap: 1rem;
 
   .controllers {
     display: flex;
@@ -92,17 +93,6 @@
 
     > * {
       cursor: pointer;
-    }
-
-    button {
-      border-radius: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-
-      svg {
-        width: 1.5rem;
-      }
     }
   }
 
@@ -114,5 +104,27 @@
     &:hover {
       filter: drop-shadow($red-shadow)
     }
+  }
+}
+
+.avatar-save {
+  top: 7.5rem;
+  left: 7.5rem;
+  min-width: max-content;
+  display: flex;
+  gap: 0.5rem;
+  height: 3rem;
+  width: 3rem;
+  display: grid;
+  place-content: center;
+  outline: 2px solid $white;
+  background: #FFD34F;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 0 #fff;
+  transition: transform 0.25s ease;
+
+  &:hover, &:focus {
+    transform: rotate(30deg);
   }
 }
