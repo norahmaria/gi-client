@@ -45,12 +45,6 @@ const Create = () => {
             setPost(prev => {
               return { ...prev, content: e.target.value }
             })
-            console.log(e.target.value)
-
-            if (e.target.value === '') {
-              console.log(e.target.value);
-              (e.target as HTMLElement).style.height = 'auto';
-            }
           }} 
           placeholder="What's up?" />
 
