@@ -14,7 +14,7 @@ const useOpen = ({ setOpenChats, socket, id }: Types) => {
       const index = chats.findIndex(chat => chat._id === id)
 
       if (window.innerWidth < 600) {
-        if (chats.length > 1) chats.splice(0, chats.length - 1)
+        if (chats.length > 0) chats.splice(0, chats.length)
       } else {
         if (chats.length >= 3) chats.splice(0, 1)
       }
