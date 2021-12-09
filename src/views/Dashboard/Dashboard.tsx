@@ -42,10 +42,6 @@ const Dashboard = () => {
         hasNextPage={hasNextPage} 
         isLoading={isLoading} 
         fetchNextPage={fetchNextPage} >
-{/* 
-        {posts && posts.map((post: PostType) => (
-          <Post key={post._id} post={post} />
-        ))} */}
 
         {posts && posts.map((post: PostType) => {
           if (post && post._id) return (

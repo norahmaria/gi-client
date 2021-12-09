@@ -95,6 +95,17 @@ const Create = () => {
           Something went wrong, try again later.
         </div>
       )}
+
+      {(post.content !== '' || post.media !== '') && (
+        <button 
+          className="error" 
+          style={{ marginTop: '1rem' }}
+          onClick={() => {
+            setPost({ content: '', media: '' })
+          }}>
+          Cancel
+        </button>
+      )}
     </form>
   )
 }
