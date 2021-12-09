@@ -136,10 +136,11 @@ html {
   position: relative;
   
   .dot {
+    border-radius: 50%;
     top: 3.25rem;
     right: 0.25rem;
     background: $success500;
-    outline: 0.25rem solid $white;
+    box-shadow: 0 0 0.25rem 0.25rem $white;
   }
 }
 
