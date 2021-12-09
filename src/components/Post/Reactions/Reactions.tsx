@@ -25,37 +25,12 @@ type Elements = {
 const Reactions = ({ post }: { post: PostType }) => {
   const { reactions, _id } = post
   const { user } = useContext(UserContext)
-  const { updatePost, setPosts, posts } = useContext(PostsContext)
+  const { updatePost } = useContext(PostsContext)
   const socket = useContext(SocketContext)
 
   const react = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>, reaction: 'angry' | 'cry' | 'heart' | 'laugh') => {
     e.preventDefault()
-    if (user?._id) {
-      const angryIndex = post.reactions.angry.indexOf(user._id)
-      const laughIndex = post.reactions.laugh.indexOf(user._id)
-      const cryIndex = post.reactions.cry.indexOf(user._id)
-      const heartIndex = post.reactions.heart.indexOf(user._id)
-
-      setPosts(posts => {
-        const mutable = [...posts]
-        const index = posts.findIndex(({ _id }) => _id === post._id)
-
-        if (angryIndex > -1 || laughIndex > -1 || cryIndex > -1 || heartIndex > -1) {
-          if (angryIndex > -1) {
-            mutable[index].reactions.angry.splice(angryIndex, 1)
-          } else if (laughIndex > -1) {
-            mutable[index].reactions.laugh.splice(laughIndex, 1)
-          } else if (cryIndex > -1) {
-            mutable[index].reactions.cry.splice(cryIndex, 1)
-          } else if (heartIndex > -1) {
-            mutable[index].reactions.heart.splice(heartIndex, 1)
-          }
-        }
-
-        return mutable
-      })
-    }
-
+  
     socket.emit('post/reaction', { reaction, postId: _id }, (postUpdate: PostType) => {
       updatePost(postUpdate)
     })
