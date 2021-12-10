@@ -6,18 +6,22 @@ type Types = {
   value: string,
   label: string,
   changeEvent: (e: ChangeEvent<HTMLInputElement>) => Promise<void>,
-  error?: string
+  error?: string,
+  info?: string
 }
 
-const Input = ({ name, value, label, changeEvent, error }: Types) => {
+const Input = ({ name, value, label, changeEvent, error, info }: Types) => {
   const type = name.toLowerCase().includes('password') ? 'password' : 'text'
   
   return (
-    <div className="input">
+    <div className={`input ${error && 'warning'}`}>
       <label>
         {error && error !== undefined ? (
           <><AngryIcon />{error}</>
         ): label}
+        {info && (
+          <p>{info}</p>
+        )}
       </label>
       <input 
         autoComplete="off"

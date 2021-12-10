@@ -73,7 +73,17 @@
 
 .form > .input {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.5rem;
+
+  p {
+    font-size: 1.4rem;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  &.warning > input {
+    border-top: 3px solid #27B9F4;
+  }
 
   label {
     font-size: 1.6rem;
@@ -105,6 +115,7 @@
 
   
   input {
+    border-top: 3px solid $white;
     background: $neutral50;
     padding: 0.5em;
     border-radius: 0.5rem;
@@ -117,6 +128,7 @@
     }
 
     &:hover, &:focus {
+      border-top: 3px solid $white;
       background: #FFD34F;
       color: $black;
       font-weight: 500;

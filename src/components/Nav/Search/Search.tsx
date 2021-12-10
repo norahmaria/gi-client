@@ -62,13 +62,13 @@ const Search = () => {
 
       {searchTerm && openSearch && (
         <div className="open-search">
-          {!searchResults[0] && (
+          {!searchResults.filter(result => result._id !== user?._id)[0] && (
             <div className="preview">
               <h3>No results</h3>
             </div>
           )}
 
-          {searchResults && searchResults.map(({ _id, username, avatar, followers }) => {
+          {searchResults && searchResults.filter(result => result._id !== user?._id).map(({ _id, username, avatar, followers }) => {
             const followersFromFollowing = followers.filter((follower: unknown) => user?.following.includes((follower as UserType)._id)) as unknown[] as UserType[]
 
             return (
@@ -86,19 +86,6 @@ const Search = () => {
             </Link>
             )
           })}
-
-          {/* {searchResults && searchResults.map(searchUser => (
-            <Link className="preview" key={searchUser._id} to={`/u/${searchUser.username}`}>
-              <div className="avatar-container">
-                <img className="avatar" src={searchUser.avatar} alt="" />
-                {online.includes(searchUser._id) && <div className="dot"></div>}
-              </div>
-              <div className="text">
-                <h3>{searchUser.username}</h3>
-                <p>Followed by {searchUser.followers.filter(follower => user?.following.includes(follower))[0]} and {searchUser.followers.filter(follower => user?.following.includes(follower)).length - 1} other</p>
-              </div>
-            </Link>
-          ))} */}
         </div>
       )}
     </div>

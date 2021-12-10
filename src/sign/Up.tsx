@@ -42,7 +42,7 @@ const Up = () => {
 
         <Input error={errors?.email} name="email" value={form.email} label="E-mail" changeEvent={setInput}/>
         
-        <Input error={errors?.password} name="password" value={form.password} label="Password" changeEvent={setInput}/>
+        <Input error={errors?.password} name="password" value={form.password} label="Password" changeEvent={setInput} info="Min 7 characters"/>
 
         <Input error={errors?.confirmPassword} name="confirmPassword" value={form.confirmPassword} label="Confirm Password" changeEvent={setInput}/>
 
