@@ -6,7 +6,7 @@ import env from 'dotenv'
 // TODO: Add error handling for sockets
 
 env.config()
-const socket = io(process.env.APIURL || 'http://localhost:5005/', {
+const socket = io(process.env.REACT_APP_API || 'http://localhost:5005/', {
   withCredentials: true,
   transports: ['websocket']
 }) 
