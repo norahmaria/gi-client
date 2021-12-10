@@ -5,6 +5,7 @@
 
 This project was built with [Create React App](https://github.com/facebook/create-react-app), using the Typescript template.
 ## To install and run the app locally:
+Replace the urls in both **src/app/API.ts** and **src/context/Socket.tsx** with the link to your server, then you can run:
 ```
 npm install
 npm start
