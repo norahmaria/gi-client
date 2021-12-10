@@ -5,7 +5,7 @@
 
 This project was built with [Create React App](https://github.com/facebook/create-react-app), using the Typescript template.
 ## To install and run the app locally:
-Add *.env* file with variables as shown in the *.env.example*
+Add *.env* file with variables as shown in the *.env.example*. Meaning the url to your API.
 ```
 npm install
 npm start
