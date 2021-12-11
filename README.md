@@ -5,7 +5,7 @@
 
 This project was built with [Create React App](https://github.com/facebook/create-react-app), using the Typescript template.
 ## To install and run the app locally:
-Add *.env* file with variables as shown in the *.env.example*. Meaning the url to your [Gi Server](https://github.com/norahmaria/gi-server/).
+Add a *.env* file with the url to your own [Gi Server](https://github.com/norahmaria/gi-server), with the same name as shown in the *.env.example*. 
 ```
 npm install
 npm start
