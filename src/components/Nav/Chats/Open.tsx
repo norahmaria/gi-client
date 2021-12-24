@@ -79,7 +79,7 @@ const Open = ({ setOpen }: { setOpen: React.Dispatch<React.SetStateAction<"noti
         <div className="preview"><h4>No results</h4></div>
       )}
 
-      {searchTerm && searchResults && searchResults.map(user => {
+      {searchTerm && searchResults?.map(user => {
         return (
           <div 
             key={`${user._id}-search-chat`}

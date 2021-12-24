@@ -16,7 +16,7 @@ import toRelativeTime from '../../utils/toRelativeTime'
 const Chat = ({ chat }: { chat: ChatType }) => {
   const { close } = useContext(ChatsContext)
   const { user, online } = useContext(UserContext)
-  const [ messages, setMessages ] = useState<MessageType[] | []>([])
+  const [ messages, setMessages ] = useState<MessageType[]>([])
 
   const dummy = useRef<HTMLDivElement>(null)
   const chatWith = chat.users.filter(({ _id }) => user?._id !== _id)[0]
@@ -27,7 +27,7 @@ const Chat = ({ chat }: { chat: ChatType }) => {
   const socket = useContext(SocketContext)
 
   useEffect(() => {
-    (dummy.current as HTMLElement).scrollIntoView()
+    (dummy.current as HTMLDivElement).scrollIntoView()
   }, [messages])
 
   useEffect(() => {

@@ -7,7 +7,7 @@ const Chats = () => {
 
   return (
     <div className="chats">
-      {openChats[0] && <h2 className="outliner">Open Chats</h2>}
+      {openChats.length && <h2 className="outliner">Open Chats</h2>}
 
       {openChats.map(chat => (
         <Chat key={chat._id} chat={chat}/>
